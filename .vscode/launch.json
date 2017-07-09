@@ -5,13 +5,13 @@
             "type": "node",
             "request": "attach",
             "name": "Debug",
-            "address": "172.18.0.3",
+            "address": "172.28.0.3",
             "port": 9229,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": "usr/src/app",
             "protocol": "inspector",
             "smartStep": true,
             "sourceMaps": true,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "/usr/src/app",
             "outFiles": [
                 "${workspaceRoot}/build/**/*.js"
             ]
