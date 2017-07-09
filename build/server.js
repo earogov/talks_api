@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 // Configuration
 app.route("/").get(function (req, res) {
-    res.send("server works!");
+    res.send("server is alive!");
 });
-exports.Instance = http.createServer(app);
+exports.server = http.createServer(app);
 //# sourceMappingURL=server.js.map

@@ -5,14 +5,15 @@
             "type": "node",
             "request": "attach",
             "name": "Debug",
-            "address": "localhost",
-            "port": 5858,
-            "localRoot": "${workspaceRoot}/build",
-            "remoteRoot": "/var/app/build",
+            "address": "172.18.0.3",
+            "port": 9229,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "usr/src/app",
             "protocol": "inspector",
             "smartStep": true,
+            "sourceMaps": true,
             "outFiles": [
-                "../build/**/*.js"
+                "${workspaceRoot}/build/**/*.js"
             ]
         }
     ]

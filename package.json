@@ -4,10 +4,15 @@
   "description": "Chat API",
   "main": "build/index.js",
   "scripts": {
-    "gl:build":  "tsc --p tsconfig.json",
-    "gl:watch":  "tsc --p tsconfig.json -w",
-    "loc:build":  "talks:tsc --p tsconfig.json",
-    "loc:watch":  "talks:tsc --p tsconfig.json -w"
+    "build": "node_modules/.bin/tsc --p tsconfig.json",
+    "watch": "node_modules/.bin/tsc --p tsconfig.json -w",
+    "db:version": "node tools/db.js version",
+    "db:migrate": "node tools/db.js migrate",
+    "db:migrate:undo": "node tools/db.js migrate:undo",
+    "db:migration": "node tools/db.js migration",
+    "db:seed": "node tools/db.js seed",
+    "docker:dev:up": "docker-compose -f docker-common.yml -f docker-dev.yml up",
+    "start": "node tools/run.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +29,15 @@
   },
   "homepage": "https://github.com/earogov/talks_api#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "@types/knex": "^0.0.54",
+    "@types/pg": "^6.1.41",
+    "express": "^4.15.3",
+    "knex": "^0.13.0",
+    "pg": "^6.4.0"
   },
   "devDependencies": {
     "@types/express": "^4.0.36",
+    "chokidar": "^1.7.0",
     "tslint": "^5.4.3",
     "typescript": "^2.3.4"
   }

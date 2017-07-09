@@ -1,0 +1,22 @@
+version: "3.2"
+
+# Extends docker-common.yml
+
+services:
+
+  # Talks API
+  server:
+    environment:
+      - DATABASE_URL=postgres://postgres@db:5432/postgres
+      - DATABASE_DEBUG=false
+      - NODE_DEBUG=true
+    ports:
+      - "9229:9229" # V8 inspector (when NODE_DEBUG=true)
+    command: node --inspect=172.18.0.3:9229 build/index.js
+
+  # SQL database
+  db:
+    image: postgres:9.6.3-alpine
+    read_only: true
+    environment:
+      - POSTGRES_USER=postgres

@@ -5,6 +5,7 @@ const app = express();
 
 // Configuration
 app.route("/").get(function(req, res) {
-  res.send("server works!");
+  res.send("server is alive!");
 });
-export const Instance = http.createServer(app);
+
+export const server = http.createServer(app);
