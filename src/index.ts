@@ -1,19 +1,29 @@
+"use strict";
+
 import * as config from "./config";
-import { server } from "./server";
-import { db } from "./db";
+import {server} from "./server/server";
+import {db} from "./server/db";
 
 
 const handleExit = function(code: number): void {
-  const actions = [server.close, db.destroy];
-  actions.forEach((close, i) => {
-    try {
-      close(() => {
-        if (i === actions.length - 1) process.exit();
-      });
-    } catch (error) {
-        if (i === actions.length - 1) process.exit();
-      }
+
+  var total: number = 0;
+  var closed: number = 0;
+
+  total++;
+  server.close(() => {
+    console.log("Talks_API server closed");
+    closed++;
+    return this;
   });
+
+  total++;
+  db.destroy(() => {
+    console.log("Talks_API server closed");
+    closed++;
+  });
+
+  setTimeout(() => {if (closed === total) process.exit(); }, 100);
 };
 
 const handleSignal = function(): void {
@@ -29,7 +39,6 @@ process.on("exit", handleExit);
 process.on("SIGINT", handleSignal);
 process.on("SIGTERM", handleSignal);
 process.on("uncaughtException", handleException);
-
 
 server.listen(config.port, () => {
   console.log(`Server listening on port ${config.port}...`);

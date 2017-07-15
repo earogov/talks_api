@@ -1,3 +1,5 @@
+"use strict";
+
 import * as knex from "knex";
 export const db = knex({
   client: "pg",

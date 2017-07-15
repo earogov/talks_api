@@ -29,8 +29,9 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled js files
-build
+# Typescript compile results
+dist
+*.js
 
 # Dependency directories
 node_modules/

@@ -3,21 +3,25 @@
 ## Pre-reqs
 
 Install [Node.js](https://nodejs.org/en/).
-Install project dependences (from project root):
+Install [yarn](https://yarnpkg.com) package manager.
 
-	npm install
+Install project dependencies (from project root):
 
-Now [Typescript](https://www.typescriptlang.org/) and [Tslint](https://palantir.github.io/tslint/) are installed as development dependences.
-Run "build" or "watch" script from package.json to compile the project:
+	yarn install
 
-	npm run build
-    npm run watch
+Now [Typescript](https://www.typescriptlang.org/) and [Tslint](https://palantir.github.io/tslint/) are installed as development dependencies.
+Compile build tools:
 
-Install [Docker](https://www.docker.com/).
-Install Docker-compose [for Ubuntu 16.x, 17.x]:
+	npm run build:tools
 
-	sudo apt install docker-compose	
+[gulp](http://www.gulpjs.com) build system was also installed as development dependency.
+Install globally [gulp-cli](https://www.npmjs.com/package/gulp-cli) to run local gulp version in terminal:
 
-Run docker containers:
+	sudo yarn global add gulp-cli
 
-	docker-compose up
+Run "build" or "watch" scripts to compile application:
+
+	npm run build:app
+	npm run watch:app
+
+Install [Docker](https://www.docker.com/) and [Docker Compose](https://www.docker.com/compose/overview).

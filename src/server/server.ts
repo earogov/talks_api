@@ -1,3 +1,5 @@
+"use strict";
+
 import * as http from "http";
 import * as express from "express";
 
